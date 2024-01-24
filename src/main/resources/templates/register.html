@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	
+	
+</head>
+<body style="background-color:#f0f0f2;">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Connect Globe </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        
+        
+      </ul>
+      <form class="d-flex">
+       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/anonymous}">Anonymous User</a>
+        </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</nav>
+	
+	<br>
+<br>
+	<!-- Create HTML registration form -->
+	<div class="container d-flex justify-content-center">
+		<div class="row">
+			<div class="col-md-12 col-md-offset-3">
+
+				
+
+				<h1>Registration</h1>
+
+				<form th:action="@{/registration}" method="post" th:object="${user}">
+					<div class="form-group">
+						<br>
+						<input id="username" class="form-control" th:field="*{username}"
+							required autofocus="autofocus" name="username" placeholder="Enter name"/>
+					</div>
+
+					<div class="form-group">
+						<br>
+						 <input
+							id="email" class="form-control" th:field="*{email}"
+							required autofocus="autofocus" name="email" placeholder="john@gmail.com" />
+					</div>
+
+					<div class="form-group">
+					<br>
+						<input
+							id="address" class="form-control" th:field="*{address}" required
+							autofocus="autofocus" name="address" placeholder="Enter Address"/>
+					</div>
+
+					<div class="form-group">
+					<br>
+						 <input
+							id="mobileNo" class="form-control" type="text" th:field="*{mobileNo}" required
+							autofocus="autofocus" name="mobileNo" placeholder="95XXXXXX42" minlength=10 maxlength=10 />
+					</div>
+					
+					<div class="form-group">
+					<br>
+						 <input
+							id="password" class="form-control" type="password"
+							th:field="*{password}" required autofocus="autofocus" name="password" placeholder="Enter Password"/>
+					</div>
+
+					<div class="form-group">
+					<br>
+						<button type="submit" class="btn btn-success">Register</button>
+						<span>Already registered? <a href="/" th:href="@{/login}">Login
+								here</a></span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,2 @@
+[com.connectglobe.config.UserLoginDetailsService.loadUserByUsername(UserLoginDetailsService.java:37)evel] 2022-09-01 08:59:54:054 [http-nio-8080-exec-5] UserLoginDetailsService - User found sg
+[com.connectglobe.config.UserLoginDetailsService.loadUserByUsername(UserLoginDetailsService.java:37)evel] 2022-09-20 00:16:11:011 [http-nio-8080-exec-6] UserLoginDetailsService - User found sg

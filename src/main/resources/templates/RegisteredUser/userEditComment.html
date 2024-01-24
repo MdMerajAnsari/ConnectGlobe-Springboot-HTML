@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>User Edit Comment</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+   integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   
+   
+</head>
+<body th:style="'background: url(https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg?w=2000)'" class="fluid hero-image" >
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" th:href="@{/user/home}">Connect Globe </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        
+        
+      </ul>
+      <form class="d-flex">
+       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/user/userPostIndex}">Post</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/user/userCommentIndex}">Comment</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page"  th:href="@{/logout}">Logout</a>
+        </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<h4 th:text="'Welcome          '+${userobjUEC.username}"></h4>
+	<div class="container">
+	<h1>Update comment</h1>
+	<form action="#" th:action="@{/user/saveComment}" th:object="${comment}" method="post">
+	<input type="hidden" class="form-control" name="cId" readonly="readonly" th:value="${userobjUEC.id}" >
+	<label>Post Id:</label>
+	<input type="text" class="form-control" name="cPostId" readonly="readonly" th:value="*{cPostId}" >
+	<input type="hidden" readonly="readonly" th:field="*{commentId}"/>
+	<label>comment Date:</label>
+	<input id="date"  name="commentDate"  readonly="readonly" class="form-control mb-4 col-4"/> 
+		<script>
+		var date = new Date();
+		var currentDate = date.toISOString();
+		document.getElementById('date').value = date;
+		</script>
+	
+	<input type="text" th:field="*{commentDesc}" placeholder="update comment here " class="form-control mb-4 col-4" required>
+	<input type="submit" class="btn btn-info col-2" value="submit"> 
+	</form>
+	<hr>
+
+	</div>
+</body>
+</html>
